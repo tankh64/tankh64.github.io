@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="initial-scale=1.0,width=device-width" />
+<title>chinesebrowser - 拼音词典</title>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/jquery.ba-bbq.min.js"></script>
+<script src="js/json.js"></script>
+<script src="js/pageInit.js"></script>
+
+<link rel="stylesheet" href="css/jquery.mobile-1.1.0.css" />
+<script src="js/jquery.mobile-1.1.0.min.js"></script>
+
+
+
+<link rel="stylesheet" href="css/jquery.mobile.spud.css" />
+<link rel="stylesheet" type="text/css" href="css/dict.css" />
+		
+</head>
+<body>
+<div id="pycd-page">
+<div data-theme="d" data-role="page" id="page1" data-ajax="false">
+<div data-role="content">
+
+<style>
+.ui-mobile-viewport { -webkit-text-size-adjust: auto !important; -ms-text-size-adjust:auto !important; }
+
+.colBlk {
+white-space:nowrap;
+margin:0px;
+max-width:800px;
+}
+
+.srchcol1 {
+display:inline-block !important;
+height:100% !important;
+vertical-align:middle !important;
+width:70%;
+}
+.srchcol2 {
+display:inline-block !important;
+height:100% !important;
+vertical-align:middle !important;
+text-align:left;
+width:30%;
+}
+.col25 {
+display:inline-block !important;
+height:100% !important;
+vertical-align:middle !important;
+width:25%;
+}
+.col33 {
+display:inline-block !important;
+height:100% !important;
+vertical-align:middle !important;
+width:33.333%;
+}
+.col50 {
+display:inline-block !important;
+height:100% !important;
+vertical-align:middle !important;
+width:50%;
+}
+</style>
+
+<center> <!-- search controls -->
+<div class="colBlk" style="max-width:600px;">
+<div class="srchcol1"><input id="idxKey" type="text" style="color:#aaaaaa;"/></div>
+<div class="srchcol2"><a id="idSearch" href="javascript:void(0)" data-role="button" class="search-button">搜</a></div>
+
+<div id="options" style="display:none;white-space:nowrap;overflow:visible !important;">
+<div class="col50">
+<select name="searchOption" id="select-logic" data-mini="true">
+   <option value="all">search all</option>
+   <option value="any">search any</option>
+   <option value="exact">exact match</option>
+   <option value="phrase">phrase search</option>
+   <option value="best">拆词搜索</option>
+   <option value="similar">类似形态搜索 (beta)</option>
+</select> 
+</div>
+<div class="col50">
+<select name="searchOption" id="select-filter" data-mini="true">
+   <option value="0">show all</option>
+   <option value="1">部首 view</option>
+   <option value="100">1 character word</option>
+   <option value="2">2 character word</option>
+   <option value="3">3 character word</option>
+   <option value="4">4 character word</option>
+   <option value="6">6 character word</option>
+   <option value="8">8 character word</option>
+</select>
+</div>
+</div>
+
+<div id="bushouoptions" style="display:none;white-space:nowrap;margin-top:4px;">
+<div id="lhs" class="col50"></div>
+<div id="rhs" class="col50"></div>
+</div>
+
+<br>
+</div></center>
+
+<center> <!-- center panel -->
+<div class="colBlk" style="text-align:left;white-space:normal;">
+<div id="idxVal" style="font-size:1em;">
+
+<div id="pycdimg">
+<center>
+<img style="height:54px;" src="img/pycd.png">
+<br>
+<br>
+Chinese-English dictionary based on<br>
+CC-CEDICT dated 2018-03-20<br>
+(profanity filtered version)<br><br>
+online at http://cidian.brainiii.com<br>
+Android versions in PlayStore<br>
+<br>
+</center>
+</div>
+
+</div>
+</div>
+</center>
+
+<center> <!-- footer -->
+<span style="white-space:nowrap;font-size:0.8em;float:none;display:inline-block;margin-top:16px">
+<a href="javascript:void(0)" class="search-help" style="cursor:pointer;margin:4px">Search Help</a>
+<a href="http://www.chinesebrowser.com/cidian.html" style="margin:4px">Cidian Home</a>
+</span><br><br>
+<img style="height:18px" src="img/co-logo.png"><br>
+<span style="white-space:nowrap;">
+<div style="font-size:0.7em;float:none;display:inline-block;margin-top:16px;">
+<img src="img/co-tiny.png" style="height:14px;vertical-align:middle;border-right:3px">
+Copyright &copy;2015-2018 brainiii.<br>All rights reserved.
+</div>
+</span>
+</center>
+
+<!-- dialog template start ///////////////////////////////////////////////////////////////////// -->
+<!--
+	Template for dialog box
+	- embed this under a data-role=page element to effect data-theme
+	- take note of class spud-dialog and spud-close
+-->
+<div id="spud">
+<div id="spud-mask"></div>
+
+<!-- dialog/////////////////////////////// -->
+<div id="dialog" class="spud-dialog ui-dialog-contain ui-corner-all ui-overlay-shadow">
+
+<div data-role="header" data-theme="e" class="ui-corner-top ui-header ui-bar-d">
+<a href="#" data-icon="delete" data-iconpos="notext" class="spud-close ui-btn-left ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-btn-icon-notext" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" title="Close"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Close</span><span class="ui-icon ui-icon-delete ui-icon-shadow">&nbsp;</span></span></a>
+<h3 id="title" class="ui-title">Error</h3>
+</div>
+
+<div data-role="content" data-theme="e" class="ui-corner-bottom ui-content ui-body-c">
+<div id="message">
+an error has occurred
+</div>
+<br>
+<a id="action" data-role="button" href="#" class="spud-close"><span id="button">Close</span></a>
+</div>
+
+</div>
+<!-- dialog/////////////////////////////// -->
+
+<!-- dialogYN/////////////////////////////// -->
+<div id="dialogYN" class="spud-dialog ui-dialog-contain ui-corner-all ui-overlay-shadow">
+
+<div data-role="header" data-theme="d" class="ui-corner-top ui-header ui-bar-d">
+<a href="#" data-icon="delete" data-iconpos="notext" class="spud-close ui-btn-left ui-btn ui-btn-up-d ui-shadow ui-btn-corner-all ui-btn-icon-notext" data-corners="true" data-shadow="true" data-iconshadow="true" data-wrapperels="span" title="Close"><span class="ui-btn-inner ui-btn-corner-all"><span class="ui-btn-text">Close</span><span class="ui-icon ui-icon-delete ui-icon-shadow">&nbsp;</span></span></a>
+<h3 id="title" class="ui-title">Error</h3>
+</div>
+
+<div data-role="content" data-theme="d" class="ui-corner-bottom ui-content ui-body-c">
+<div id="message">
+an error has occurred
+</div>
+<br>
+
+<div style="white-space:nowrap;">
+<div class="col50"><a id="action" data-role="button" id="yes" href="#" class="spud-close"><span id="button">Yes</span></a></div>
+<div class="col50"><a id="actionNo" data-role="button" id="no" href="#" class="spud-close"><span id="buttonNo">No</span></a></div>
+</div>
+</div>
+
+</div>
+<!-- dialog/////////////////////////////// -->
+
+</div><!--spud-->
+
+
+<!-- dialog template end/////////////////////////////////////////// -->
+
+
+<!-- ///###///###///###///###///###///###///###///###///###///### -->
+
+
+
+</div><!-- data-role-content -->
+</div><!-- data-role-page -->
+
+
+
+<script src="js/jsftengine.min.js"></script>
+
+</div>
+
+<script>
+
+var searchBoxPrompt="enter your search";
+$("#idxKey").val(searchBoxPrompt);
+
+// both the image and message is from server; we want to use
+// this for future ads
+// background:url('img/dian.png') no-repeat right center;
+$("#idxKey").focus(function(e) {
+	if ($(this).val()==searchBoxPrompt) {
+		$(this).val("");
+		$(this).css({"color":""});
+	}
+});
+
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+

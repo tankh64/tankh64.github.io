@@ -1,0 +1,140 @@
+﻿<style>
+.hd {
+font-size:110%;
+font-weight:bold;
+}
+.p {
+font-size:130%;
+}
+</style>
+
+<span class="hd">Hanyu Pinyin</span><br>
+<p>Use tone numbers, 1 to 4, to indicate tone accents (声调); eg xin4 is
+equivalent to <span class="p">xìn</span>. Use tone number 5 for the relaxed tone (轻声);
+eg (哥哥) ge1ge5. Searching without any tone number will return all tone variations.</p>
+
+<p>Use v for <span span class="p">ü</span>. For example, to search for <span class="p">nü</span>(女), type nv in the search bar. note that v is a widely-used convenient keyboard alternative for <span class="p">ü</span>.</p>
+
+<span class="hd">Chinese/pinyin words and phrases</span><br>
+<p>How <i>Pinyin Cidian</i> searches chinese/pinyin words is dependent on how each search string is constructed and the selected <i>search logic</i>. For example,</p>
+<ul>
+<li>xin jia po (will search for dictionary entries with all the 3 terms "xin" "jia" and "po" in the default "search all" logic. However, the hit terms may not be in sequence and can appear in different data fields)</li>
+<li>xin1 jia1 po1  (is similar to the above but more specific and this is the same as searching <span class="p">xīn jīa pō</span>)</li>
+<li>xinjiapo (without space seperators, will be treated as a phrase; hits will be registered only if the pinyin terms are found in sequence)</li>
+<li>xin1jia1po1 (as a phrase with tone numbers and is equivalent to <span class="p">xīnjīapō</span>)</li>
+</ul>
+<p>Similarly, searching "回转" without any spacing will only result in hits with 回转 (rotation) occuring in sequence.
+"回 转" with a seperating space will be treated as two search terms and will also return 转回 (to turn back).
+</p>
+
+<p>
+Enclosing terms in double quotes will produce a search phrase; for example "as soon as". Also note that "beijing daxue" (with the double quotes) is the same as searching beijingdaxue.
+</p>
+
+<span class="hd">Strokes-Bushou (笔画部手)</span><br>
+<p>To search for a chinese character that you don't know its pinyin
+or what it means in english, you can use the
+Strokes-Bushou (笔画部手) method. First count the total number
+of strokes in the chinese character. Counting the strokes
+reinforces your recognition of the character. Lets suppose we
+are searching for 捏. It has 10 strokes. Type in 10 into the
+search bar and click search. Select "部手 view" and you will be presented
+with a panel of bushou. The number in each bushou indicates the corresponding
+number of hits that can be found.
+Click on the bushou of 捏 which in this case is 扌and locate 捏.</p>
+<p>
+To help you locate your bushou, you can do one of the following,
+<li>simplify the bushou panel by selecting <img src="img/bsstrokesButton.png" style="vertical-align:middle;">
+which is the number of strokes for 扌. This will present
+only 3 strokes bushou.</li>
+<li>If you know the pinyin of your bushou, then enter 10.shou in
+the search bar</li>
+<li>make use of <img src="img/bsNxPrButtons.png" style="vertical-align:middle;">to change
+the number of strokes just in case you have counted your
+strokes wrongly.</li>
+</p>
+
+<span class="hd">Bushou-Pinyin (部手拼音)</span><br>
+<p>Bushou-Pinyin is a refinement suffix that can be attached
+to any pinyin and strokes. For example, 
+<a href='#qry[src]=ci4.dao&qry[srt]=scoreHits&qry[psz]=20&qry[sfx]=exact&qry[fil]=0'>
+ci4.dao
+</a>
+ is a search
+on pinyin ci4 with bushou-pinyin dao. eg 刺 with bushou刂
+</p>
+
+<span class="hd">Advanced Search Logic</span><br>
+<p>
+For the more technically savy, the <i>boolean</i> logical operators (and, or not) can be
+used in constructing more specific search queries, the following are examples,
+</p>
+
+
+<p> Search for either nanjing university or beijing university
+<a href='#qry[src]="nanjing university" or "beijing university"&qry[srt]=scoreHits&qry[psz]=20&qry[sfx]=exact&qry[fil]=0'>
+"nanjing university" or "beijing university"
+</a>
+</p>
+
+<p> Search for characters with pinyin yi1 but not the english word "one"
+<a href='#qry[src]=yi1 not one&qry[srt]=scoreHits&qry[psz]=20&qry[sfx]=exact&qry[fil]=0'>
+yi1 not one
+</a>
+</p>
+
+<p> Search for sun in the english field only
+<a href='#qry[src]=field:en sun&qry[srt]=scoreHits&qry[psz]=20&qry[sfx]=exact&qry[fil]=0'>
+field:en sun
+</a>. Note that only the first field command is used. If there are more than one field command
+given, the rest are ignored. Contrast this with 
+<a href='#qry[src]=sun&qry[srt]=scoreHits&qry[psz]=20&qry[sfx]=exact&qry[fil]=0'>
+sun
+</a> and you will see the difference. See also the difference between 
+<a href='#qry[src]=field:en run&qry[srt]=scoreHits&qry[psz]=20&qry[sfx]=exact&qry[fil]=0'>
+field:en run
+</a> and 
+<a href='#qry[src]=run&qry[srt]=scoreHits&qry[psz]=20&qry[sfx]=exact&qry[fil]=0'>
+run
+</a>
+</p>
+
+
+
+<!--
+<span class="hd">Navigation</span><br>
+<p>
+clicking on search result
+clicking on search button
+select and search
+</p>
+
+<span class="hd">Search Logic</span><br>
+<p>
+and, or, not boolean search logics are supported.
+</p>
+
+<span class="hd">Search Views</span><br>
+<p>
+</p>
+
+<span class="hd">Advanced Search</span><br>
+<p>
+and or not
+use yi1 not one as example
+left to right evaluation
+field
+use sun as example
+phrase
+no grouping or nested grouping support
+</p>
+-->
+
+<!--
+<br>
+<p>
+Feedback, bug reports and more detailed help can be found at <a href="http://cidian.pinyinbrowser.com">http://cidian.pinyinbrowser.com</a>.
+</p>
+-->
+
+

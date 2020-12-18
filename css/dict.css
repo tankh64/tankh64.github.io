@@ -1,0 +1,265 @@
+﻿jsfts\:d {
+display:block;
+line-height:1em !important;
+}
+
+jsfts\:s {
+display:inline;
+line-height:1em !important;
+}
+
+.dcrw {
+display:block;
+width:100%;
+margin:1px;
+padding:2px;
+font-size:0.7em;
+line-height:1em !important;
+text-align:left;
+}
+
+/* selector for element and children */
+#foobar {
+background:none !important;
+border:none !important;
+bottom:auto !important;
+clear:none !important;
+cursor:default !important;
+/* didn't really know what the default for display should be*/
+/*display:inline;*/
+float:none !important;
+font-family:Arial, Helvetica, sans-serif !important;
+font-size:medium !important;
+font-style:normal !important;
+font-weight:normal !important;
+height:auto !important;
+left:auto !important;
+letter-spacing:normal !important;
+line-height:normal !important;
+max-height:none !important;
+max-width:none !important;
+min-height:0 !important;
+min-width:0 !important;
+overflow:visible !important;
+position:static !important;
+right:auto !important;
+text-align:left !important;
+text-decoration:none !important;
+text-indent:0 !important;
+text-transform:none !important;
+top:auto !important;
+visibility:visible !important;
+white-space:normal !important;
+width:auto !important;
+z-index:auto !important;
+}
+.pycdbg {
+background-image:url('images/pycdbg.png');
+background-repeat:no-repeat;
+background-position:left top;
+}
+.rzh {
+display:inline-block;
+font-size:1.5em;
+font-family:宋体,SimSun,Arial,微軟正黑體,細明體,Helvetica,sans-serif;
+margin:2px;
+}
+.rch {
+position:relative;
+display:block;
+float:none;
+width:100%;
+text-align:center;
+}
+.rpy {
+position:relative;
+font-size:0.6em;
+font-family:arial;
+width:100%;
+top:0em;
+text-align:center;
+}
+/* inline semantics */
+.rsm {
+color:black;
+font-size:0.6em;
+text-align:left;
+vertical-align:top;
+display:inline-block;
+margin-left:2px;
+}
+
+.bs {
+display:inline-block;
+padding:5px;
+border:1px solid #eee;
+margin-left:1px;
+margin-top:1px;
+}
+body {
+font-size:medium;
+-webkit-text-size-adjust: auto;
+}
+
+jsfts\:b {
+background-color:yellow;
+-moz-box-shadow: 1px 1px 1px #CCC;
+-webkit-box-shadow: 1px 1px 1px #CCC;
+box-shadow: 1px 1px 1px #CCC;
+font-weight: bold;
+}
+/*
+-webkit-user-select: none;
+tr:nth-child(odd) { background: #fafafa; }
+*/
+.odd {
+	background: #fafafa;
+}
+.loader {
+   width: 218;
+   height: 149;
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   margin-left: -109px;
+   margin-top: -74px;
+}
+.idxVal {
+font-family:宋体,SimSun,Arial,微軟正黑體,細明體,Helvetica,sans-serif;
+}
+.zh {
+font-family:宋体,SimSun,Arial,微軟正黑體,細明體,Helvetica,sans-serif;
+}
+td.sno {
+text-align:center;
+}
+td.zh {
+text-align:left;
+min-width:100px;
+}
+td.sm {
+vertical-align:top;
+}
+
+.cdrec {
+/*cursor:pointer;*/
+}
+
+jsfts\:s.zh {
+white-space:nowrap;
+font-size:1.5em;
+-moz-box-shadow: 1px 1px 1px #CCC;
+-webkit-box-shadow: 1px 1px 1px #CCC;
+box-shadow: 1px 1px 1px #CCC;
+}
+jsfts\:s.py {
+white-space:nowrap;
+font-size:0.7em;
+font-family:Arial,Helvetica,sans-serif;
+}
+.bspanel {
+font-size:1em;
+display:inline-block;
+float:left;
+padding:2px;
+margin-right:2px;
+min-width:3em;
+text-align:center;
+text-decoration:none;
+}
+jsfts\:s.zhs {
+display:inline-block;
+left:0px;
+/* float:left; */
+padding:2px;
+margin-right:2px;
+text-align:center;
+vertical-align:top;
+}
+.lhs {
+display:inline-block;
+left:0px;
+/* float:left; */
+padding:2px;
+margin-right:2px;
+min-width:3em;
+text-align:center;
+vertical-align:top;
+}
+.rhs {
+display:inline-block;
+margin-left:2px;
+}
+li {
+font-size:0.8em
+}
+.search {
+white-space:nowrap;
+}
+.adv {
+white-space:nowrap;
+font-size:1em;
+overflow:hidden;
+}
+.opt {
+font-size:0.7em;
+}
+
+
+jsfts\:zhn {
+display:inline-block !important;
+position:relative !important;
+font-size:1.1em !important;
+text-align:center !important;
+white-space:pre !important;
+text-indent:0 !important;
+padding:0 !important;
+border:0 !important;
+float:none !important;
+background-image:none !important;
+margin-right:0.05em !important;
+margin-bottom:0.05em !important; /* effectively line spacing */
+line-height:normal !important;
+top:0.5em;
+}
+jsfts\:pyn {
+display:block !important;
+position:relative !important;
+font-size:0.8em !important;
+font-family:arial !important;
+width:100% !important;
+top:-0.25em !important;
+text-align:center !important;
+line-height:normal !important;
+}
+
+jsfts\:zhk {
+display:inline-block !important;
+position:relative !important;
+font-size:1.5em !important;
+text-align:center !important;
+white-space:pre !important;
+text-indent:0 !important;
+padding:0 !important;
+border:0 !important;
+float:none !important;
+background-image:none !important;
+margin-right:0.05em !important;
+margin-bottom:0.05em !important; /* effectively line spacing */
+line-height:normal !important;
+-moz-box-shadow: 1px 0px 1px #CCC;
+-webkit-box-shadow: 1px 0px 1px #CCC;
+box-shadow: 1px 0px 1px #CCC;
+}
+
+jsfts\:pyk {
+display:block !important;
+position:relative !important;
+font-size:0.6em !important;
+font-family:arial !important;
+width:100% !important;
+top:0em !important;
+text-align:center !important;
+line-height:normal !important;
+}
+
